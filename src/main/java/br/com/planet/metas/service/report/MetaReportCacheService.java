@@ -104,7 +104,11 @@ public class MetaReportCacheService {
         cache.setTipoVendedor(item.getTipoVendedor());
         cache.setNomePlano(item.getNomePlano());
         cache.setTicket(item.getTicket());
-        cache.setPontos(pontuacaoVendedorService.calcularPontosPorTicket(item.getTicket()));
+        //IA: Persiste os pontos ja considerando a regra por tipo de vendedor.
+        cache.setPontos(pontuacaoVendedorService.calcularPontosPorTicket(
+                item.getTicket(),
+                item.getTipoVendedor()
+        ));
         cache.setStatus(item.getStatus());
 
         return cache;

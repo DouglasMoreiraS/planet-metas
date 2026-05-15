@@ -1,7 +1,7 @@
 @echo off
 setlocal
 
-set APP_JAR=Metas-1.0.0.jar
+set APP_JAR=Metas-1.0.1.jar
 
 REM IA: Mantem o bat simples para executar o jar versionado na mesma pasta do servidor.
 if not exist "%APP_JAR%" (

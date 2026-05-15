@@ -2,6 +2,19 @@
 
 Todas as mudancas relevantes deste projeto serao documentadas neste arquivo.
 
+## v1.0.1 - 2026-05-15
+
+### Alterado
+
+- Pontuacao de vendas separada por tipo de vendedor.
+- Vendedores externos (`tipo = 1`) mantem a regra de pontuacao original.
+- Vendedores internos (`tipo = 0`) passam a usar a nova tabela de pontuacao por ticket.
+- Registros sem tipo de vendedor passam a ser tratados como internos por padrao.
+
+### Observacoes
+
+- E necessario reprocessar o cache via endpoint apos o deploy para recalcular e persistir os pontos com a nova regra.
+
 ## v1.0.0 - 2026-05-15
 
 ### Adicionado

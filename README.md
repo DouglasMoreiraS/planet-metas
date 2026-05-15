@@ -89,14 +89,14 @@ mvn clean package -DskipTests
 Artefato esperado:
 
 ```text
-target/Metas-1.0.0.jar
+target/Metas-1.0.1.jar
 ```
 
 ## Execucao no servidor
 
 Copie para o servidor:
 
-- `target/Metas-1.0.0.jar`
+- `target/Metas-1.0.1.jar`
 - `run-metas.bat`
 
 Mantenha os dois arquivos na mesma pasta e execute:
