@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Metas - Relatorio de Vendas</title>
+
+    <link rel="stylesheet" href="/css/metas.css" />
+</head>
+
+<body>
+<div class="page">
+    <section class="hero">
+        <div>
+            <span class="eyebrow">Dashboard comercial</span>
+            <h1>Relatorio de Metas</h1>
+            <p>Consulte instalacoes, tickets e pontuacao dos vendedores com dados do cache local.</p>
+        </div>
+
+        <span class="hero-status">Periodo minimo: 01/01/2026</span>
+    </section>
+
+    <section class="filters">
+        <div class="field">
+            <label for="periodoFiltro">Periodo</label>
+            <!-- IA: Atalhos de periodo mantem os campos de data sincronizados com escolhas comuns. -->
+            <select id="periodoFiltro">
+                <option value="mes-atual">Esse mes</option>
+                <option value="hoje">Hoje</option>
+                <option value="ontem">Ontem</option>
+                <option value="mes-passado">Mes passado</option>
+                <option value="ultimos-3-meses">Ultimos 3 meses</option>
+                <option value="ano-atual">Esse ano</option>
+                <option value="personalizado">Personalizado</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="dataInicial">Data inicial</label>
+            <input type="date" id="dataInicial" min="2026-01-01" />
+        </div>
+
+        <div class="field">
+            <label for="dataFinal">Data final</label>
+            <input type="date" id="dataFinal" min="2026-01-01" />
+        </div>
+
+        <div class="field">
+            <label for="tipoVendedorFiltro">Vendedores</label>
+            <!-- IA: O valor acompanha a convencao do backend: vazio todos, 0 interno, 1 externo. -->
+            <select id="tipoVendedorFiltro">
+                <option value="">Todos</option>
+                <option value="0">Internos</option>
+                <option value="1">Externos</option>
+            </select>
+        </div>
+
+        <div class="button-group">
+            <button class="btn-primary" type="button" id="buscarDadosButton">
+                Buscar dados
+            </button>
+
+            <button class="btn-secondary" type="button" id="exportarPlanilhaButton">
+                Exportar Excel
+            </button>
+
+            <button class="btn-outline" type="button" id="limparTabelasButton">
+                Limpar
+            </button>
+        </div>
+
+        <div class="cache-panel">
+            <span id="ultimaAtualizacaoLabel" class="cache-info">
+                Ultima atualizacao: -
+            </span>
+        </div>
+    </section>
+
+    <div id="statusBar" class="status-bar">
+        <div id="statusMessage" class="status"></div>
+    </div>
+
+    <section class="summary-grid">
+        <article class="summary-item">
+            <span>Instalacoes</span>
+            <strong id="totalInstalacoes">0</strong>
+        </article>
+
+        <article class="summary-item">
+            <span>Vendedores</span>
+            <strong id="totalVendedores">0</strong>
+        </article>
+
+        <article class="summary-item">
+            <span>Ticket medio</span>
+            <strong id="ticketMedio">R$ 0,00</strong>
+        </article>
+
+        <article class="summary-item">
+            <span>Pontos totais</span>
+            <strong id="pontosTotais">0</strong>
+        </article>
+    </section>
+
+    <section class="grid">
+        <article class="card">
+            <div class="card-header">
+                <h2>Dados da planilha</h2>
+                <span id="reportCount" class="badge">0 registros</span>
+            </div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Data instalacao</th>
+                        <th>Contrato</th>
+                        <th>Cliente</th>
+                        <th>Plano</th>
+                        <th>Vendedor</th>
+                        <th>Ticket</th>
+                    </tr>
+                    </thead>
+                    <tbody id="reportTableBody">
+                    <tr>
+                        <td colspan="6" class="empty">Selecione um periodo e clique em buscar.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+
+        <article class="card">
+            <div class="card-header">
+                <h2>Pontuacao dos vendedores</h2>
+                <span id="sellerCount" class="badge">0 vendedores</span>
+            </div>
+
+            <div class="table-wrap">
+                <table class="small-table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Vendedor</th>
+                        <th>Pontos</th>
+                    </tr>
+                    </thead>
+                    <tbody id="sellerTableBody">
+                    <tr>
+                        <td colspan="3" class="empty">Nenhuma pontuacao carregada.</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+        </article>
+    </section>
+
+    <p class="footer-note">
+        Sistema de metas - Dashboard consultado pelo cache local
+    </p>
+</div>
+
+<script src="/js/metas.js"></script>
+</body>
+</html>
