@@ -193,7 +193,7 @@ function preencherTabelaRelatorio(dados) {
     if (!dados.length) {
         reportTableBody.innerHTML = `
             <tr>
-                <td colspan="6" class="empty">Nenhum dado encontrado no cache para o periodo.</td>
+                <td colspan="5" class="empty">Nenhum dado encontrado no cache para o periodo.</td>
             </tr>
         `;
         return;
@@ -205,7 +205,6 @@ function preencherTabelaRelatorio(dados) {
         row.innerHTML = `
             <td>${formatarData(item.dataInstalacao)}</td>
             <td>${item.idContrato ?? '-'}</td>
-            <td>${item.nomeCliente ?? '-'}</td>
             <td>${item.nomePlano ?? '-'}</td>
             <td>${item.nomeVendedor ?? '-'}</td>
             <td class="money">${formatarMoeda(item.ticket)}</td>
@@ -310,7 +309,7 @@ function limparTabelas() {
 
     reportTableBody.innerHTML = `
         <tr>
-            <td colspan="6" class="empty">Selecione um periodo e clique em buscar.</td>
+            <td colspan="5" class="empty">Selecione um periodo e clique em buscar.</td>
         </tr>
     `;
 
